@@ -1,0 +1,7 @@
+.navigation {
+  list-style: none; }
+  .navigation__list {
+    display: inline-block;
+    padding: 1rem 2rem; }
+  .navigation__link {
+    text-decoration: none; }

@@ -1,0 +1,12 @@
+.navigation {
+  list-style: none;
+
+  &__list {
+    display: inline-block;
+    padding: 1rem 2rem;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
