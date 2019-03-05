@@ -4,4 +4,9 @@
     display: inline-block;
     padding: 1rem 2rem; }
   .navigation__link {
-    text-decoration: none; }
+    text-decoration: none;
+    font-size: 1.2rem; }
+
+.footer {
+  text-align: center;
+  margin-top: 5rem; }

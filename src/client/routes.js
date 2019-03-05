@@ -1,7 +1,7 @@
 import App from './App';
-import Home from './components/home';
-import Form from './components/form';
-import Contact from './components/contact';
+import Home from './components/pages/home';
+import Books from './components/pages/books';
+import Contact from './components/pages/contact';
 
 const routes = [
   {
@@ -13,8 +13,8 @@ const routes = [
         component: Home,
       },
       {
-        path: '/form',
-        component: Form,
+        path: '/books',
+        component: Books,
       },
       {
         path: '/contact',
