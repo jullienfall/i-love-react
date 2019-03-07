@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Books extends Component {
   render() {
     const { books } = this.props;
     return (
-      <h1>{books[0].title}</h1>
+      <div className="book__wrapper">
+        <div className="container">
+          <h1 className="book__title">List of the books</h1>
+          {books.map(book => (
+            <div className="book__item">
+              <h3>{book.title}</h3>
+              <p>{book.author}</p>
+            </div>
+          ))}
+          <button className="btn"><Link to="/add-book" className="link">Add book</Link></button>
+        </div>
+      </div>
     )
   }
 };

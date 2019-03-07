@@ -34,7 +34,7 @@ class BooksApi {
   }
 
   static saveAuthor(book) {
-    books = Object.assign({}, book); // to avoid manipulating object passed in.
+    book = Object.assign({}, book); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
@@ -48,7 +48,7 @@ class BooksApi {
         }
 
         if (books.id) {
-          const existingAuthorIndex = books.findIndex(a => a.id == book.id);
+          const existingAuthorIndex = books.findIndex(a => a.id === book.id);
           books.splice(existingAuthorIndex, 1, book);
         } else {
           //Just simulating creation here.
