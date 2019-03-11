@@ -22,8 +22,6 @@ const generateId = (book) => {
   return book.author;
 };
 
-// console.log(generateId('The Picture of Dorian Gray'));
-
 class BooksApi {
   static getAllBooks() {
     return new Promise((resolve, reject) => {
@@ -33,7 +31,7 @@ class BooksApi {
     });
   }
 
-  static saveAuthor(book) {
+  static saveBook(book) {
     book = Object.assign({}, book); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -47,7 +45,7 @@ class BooksApi {
           reject(`Last Name must be at least ${minAuthorNameLength} characters.`);
         }
 
-        if (books.id) {
+        if (book.id) {
           const existingAuthorIndex = books.findIndex(a => a.id === book.id);
           books.splice(existingAuthorIndex, 1, book);
         } else {
@@ -63,7 +61,7 @@ class BooksApi {
     });
   }
 
-  // static deleteAuthor(bookId) {
+  // static deleteBook(bookId) {
   //   return new Promise((resolve, reject) => {
   //     setTimeout(() => {
   //       const indexOfAuthorToDelete = books.findIndex(book => {

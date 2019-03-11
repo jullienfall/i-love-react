@@ -1,23 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 import classNames from 'classnames';
 import { string, object } from 'prop-types';
 
-const FormField = props => {
-  const { extraClasses, label, meta } = props;
+class FormField extends Component {
 
-  const cn = classNames('form__element', {
-    'form__element--valid': meta.valid,
-    'form__element--invalid': meta.invalid,
-  });
+  constructor(props) {
+    super(props);
+    this.onChange = this.onChange.bind(this);
+  }
 
+  onChange(e) {
+    this.props.input.onChange(e);
+  }
+
+  render() {
+  const { extraClasses, label, input, value } = this.props;
   return (
     <div className={extraClasses}>
-      <div className={cn}>
+      <div>
         <label className="form__label">{label}</label>
-        <input {...props} className="col-xs-12" />
+        <input {...input} value={value} className="col-xs-12" onChange={this.onChange} />
       </div>
     </div>
   );
+}
 };
 
 FormField.propTypes = {

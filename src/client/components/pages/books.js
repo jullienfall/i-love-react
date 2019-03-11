@@ -10,7 +10,7 @@ class Books extends Component {
         <div className="container">
           <h1 className="book__title">List of the books</h1>
           {books.map(book => (
-            <div className="book__item">
+            <div className="book__item" key={book.title}>
               <h3>{book.title}</h3>
               <p>{book.author}</p>
             </div>
