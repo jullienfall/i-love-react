@@ -15,8 +15,9 @@ class AddBook extends Component {
     };
 
     this.updateBookState = this.updateBookState.bind(this);
-    this.saveBook = this.saveBook.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.book.id != nextProps.book.id) {
       this.setState({book: Object.assign({}, nextProps.book)});
@@ -27,11 +28,11 @@ class AddBook extends Component {
     const field= event.target.name;
     let book = this.state.book;
     book[field] = event.target.value;
-    return this.setState({book: book});
+    return this.setState({ book: book });
   }
 
-  saveBook(event) {
-    event.preventDefault();
+  handleSubmit() {
+    this.updateBookState();
     this.props.actions.saveBook(this.state.book)
       .then(() => this.redirect())
       .catch(error => {
@@ -48,8 +49,7 @@ class AddBook extends Component {
       <div className="container">
         <h2>Add a Book</h2>
           <BookForm
-            onSave={this.saveBook}
-            onChange={this.updateBookState}
+            onSubmit={this.handleSubmit}
             book={this.state.book}
             errors={this.state.errors}
           />

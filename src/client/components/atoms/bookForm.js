@@ -1,12 +1,13 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { Field, reduxForm, getFormSyncErrors } from 'redux-form';
+import { connect } from 'react-redux';
 
 import FormField from './formField';
+import {validate} from './validate';
 
-const BookForm = ({book, onSave, onChange}) => {
+const BookForm = ({ book, handleSubmit, submitting, invalid }) => {
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <div className="row">
         <Field
           name="title"
@@ -14,8 +15,8 @@ const BookForm = ({book, onSave, onChange}) => {
           type="text"
           value={book.title}
           label="Title"
-          onChange={onChange}
           placeholder="Arch of Triumph"
+          value= ''
         />
       </div>
       <div className="row">
@@ -24,7 +25,6 @@ const BookForm = ({book, onSave, onChange}) => {
           component={FormField}
           type="text"
           value={book.author}
-          onChange={onChange}
           label="Author"
           placeholder="Erich Maria Remarque"
         />
@@ -34,7 +34,7 @@ const BookForm = ({book, onSave, onChange}) => {
           type="submit"
           value='Save'
           className="btn"
-          onClick={onSave}
+          disabled={invalid || submitting}
         />
       </div>
     </form>
@@ -43,5 +43,5 @@ const BookForm = ({book, onSave, onChange}) => {
 
 export default reduxForm({
   form: 'add-book',
-  // validate,
+  validate,
 })(BookForm);

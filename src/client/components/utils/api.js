@@ -36,25 +36,25 @@ class BooksApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minAuthorNameLength = 3;
-        if (book.title.length < minAuthorNameLength) {
-          reject(`First Name must be at least ${minAuthorNameLength} characters.`);
-        }
+        // const minAuthorNameLength = 3;
+        // if (book.title.length < minAuthorNameLength) {
+        //   reject(`First Name must be at least ${minAuthorNameLength} characters.`);
+        // }
 
-        if (book.author.length < minAuthorNameLength) {
-          reject(`Last Name must be at least ${minAuthorNameLength} characters.`);
-        }
+        // if (book.author.length < minAuthorNameLength) {
+        //   reject(`Last Name must be at least ${minAuthorNameLength} characters.`);
+        // }
 
-        if (book.id) {
-          const existingAuthorIndex = books.findIndex(a => a.id === book.id);
-          books.splice(existingAuthorIndex, 1, book);
-        } else {
+        // if (book.id) {
+        //   const existingAuthorIndex = books.findIndex(a => a.id === book.id);
+        //   books.splice(existingAuthorIndex, 1, book);
+        // } else {
           //Just simulating creation here.
           //The server would generate ids for new authors in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           book.id = generateId(book);
           books.push(book);
-        }
+        // }
 
         resolve(book);
       }, delay);
