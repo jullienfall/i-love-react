@@ -58,6 +58,10 @@ h3 {
 .form__label {
   display: block; }
 
+.form__error {
+  color: red;
+  padding: 0 0 1rem; }
+
 .book__title {
   text-align: center; }
 

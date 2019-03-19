@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -19,7 +19,7 @@ class AddBook extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.book.id != nextProps.book.id) {
+    if (this.props.book.id !== nextProps.book.id) {
       this.setState({book: Object.assign({}, nextProps.book)});
     }
   }
@@ -59,7 +59,7 @@ class AddBook extends Component {
 };
 
 const getBookById = (books, id) => {
-  const book = books.filter(book => book.id == id);
+  const book = books.filter(book => book.id === id);
   if(book) return book[0];
   return null;
 };

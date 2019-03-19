@@ -1,19 +1,17 @@
-import React, {Component} from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import { string, object } from 'prop-types';
 
 const FormField = props => {
   const { input, label, type, placeholder, meta: { touched, error } } = props;
-  console.log(error)
   return (
-    <div>
+    <div className="form__element">
       <label className="form__label">{label}</label>
       <input
         {...input}
         type={type}
         placeholder={placeholder}
       />
-      {touched && <span>{error}</span>}
+      {touched && <div className="form__error">{error}</div>}
     </div>
   );
 };

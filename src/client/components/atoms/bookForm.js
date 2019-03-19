@@ -1,6 +1,5 @@
 import React from 'react';
-import { Field, reduxForm, getFormSyncErrors } from 'redux-form';
-import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 
 import FormField from './formField';
 import {validate} from './validate';
@@ -15,8 +14,6 @@ const BookForm = ({ book, handleSubmit, submitting, invalid }) => {
           type="text"
           value={book.title}
           label="Title"
-          placeholder="Arch of Triumph"
-          value= ''
         />
       </div>
       <div className="row">
@@ -26,7 +23,6 @@ const BookForm = ({ book, handleSubmit, submitting, invalid }) => {
           type="text"
           value={book.author}
           label="Author"
-          placeholder="Erich Maria Remarque"
         />
       </div>
       <div className="row">
