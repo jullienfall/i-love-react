@@ -27,7 +27,7 @@ const ContactForm = props => {
         />
       </div>
       <div className="row">
-        <button type="submit" disabled={submitting || invalid}>
+        <button type="submit" className="btn" disabled={submitting || invalid}>
           Submit
         </button>
       </div>

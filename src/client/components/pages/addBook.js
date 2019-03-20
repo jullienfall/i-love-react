@@ -15,7 +15,7 @@ class AddBook extends Component {
     };
 
     this.updateBookState = this.updateBookState.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.saveCourse = this.saveCourse.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,8 +31,8 @@ class AddBook extends Component {
     return this.setState({ book: book });
   }
 
-  handleSubmit() {
-    this.updateBookState();
+  saveCourse(event) {
+    event.preventDefault();
     this.props.actions.saveBook(this.state.book)
       .then(() => this.redirect())
       .catch(error => {
@@ -49,9 +49,10 @@ class AddBook extends Component {
       <div className="container">
         <h2>Add a Book</h2>
           <BookForm
-            onSubmit={this.handleSubmit}
+            onSave={this.saveCourse}
             book={this.state.book}
             errors={this.state.errors}
+            onChange={this.updateBookState}
           />
       </div>
     )

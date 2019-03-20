@@ -1,43 +1,36 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
 
-import FormField from './formField';
-import {validate} from './validate';
-
-const BookForm = ({ book, handleSubmit, submitting, invalid }) => {
+const BookForm = ({ book, onChange, onSave }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="row">
-        <Field
-          name="title"
-          component={FormField}
-          type="text"
-          value={book.title}
-          label="Title"
-        />
-      </div>
-      <div className="row">
-        <Field
-          name="author"
-          component={FormField}
-          type="text"
-          value={book.author}
-          label="Author"
-        />
-      </div>
-      <div className="row">
-        <input
-          type="submit"
-          value='Save'
-          className="btn"
-          disabled={invalid || submitting}
-        />
-      </div>
+    <form>
+      <label className="form__label" htmlFor="title">Title</label>
+      <input
+        id="title"
+        name="title"
+        type="text"
+        value={book.title}
+        onChange={onChange}
+        placeholder="Arch of Triumph"
+        className="form__input"
+      />
+      <label className="form__label" htmlFor="author">Author</label>
+      <input
+        id="author"
+        name="author"
+        type="text"
+        value={book.author}
+        onChange={onChange}
+        placeholder="Erich Maria Remarque"
+        className="form__input"
+      />
+      <input
+        type="submit"
+        value='Save'
+        className="btn"
+        onClick={onSave}
+      />
     </form>
   )
 };
 
-export default reduxForm({
-  form: 'add-book',
-  validate,
-})(BookForm);
+export default BookForm;
