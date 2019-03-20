@@ -6,4 +6,14 @@
   &__label {
     display: block;
   }
+
+  &__error {
+    color: red;
+    padding: 0 0 1rem;
+  }
+
+  &__input {
+    display: block;
+    margin-bottom: 1rem;
+  }
 }

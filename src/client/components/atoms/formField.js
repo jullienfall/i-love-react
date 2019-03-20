@@ -1,29 +1,19 @@
-import React, {Component} from 'react';
-import classNames from 'classnames';
+import React from 'react';
 import { string, object } from 'prop-types';
 
-class FormField extends Component {
-
-  constructor(props) {
-    super(props);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(e) {
-    this.props.input.onChange(e);
-  }
-
-  render() {
-  const { extraClasses, label, input, value } = this.props;
+const FormField = props => {
+  const { input, label, type, placeholder, meta: { touched, error } } = props;
   return (
-    <div className={extraClasses}>
-      <div>
-        <label className="form__label">{label}</label>
-        <input {...input} value={value} className="col-xs-12" onChange={this.onChange} />
-      </div>
+    <div className="form__element">
+      <label className="form__label">{label}</label>
+      <input
+        {...input}
+        type={type}
+        placeholder={placeholder}
+      />
+      {touched && <div className="form__error">{error}</div>}
     </div>
   );
-}
 };
 
 FormField.propTypes = {

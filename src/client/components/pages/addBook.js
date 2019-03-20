@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -15,10 +15,11 @@ class AddBook extends Component {
     };
 
     this.updateBookState = this.updateBookState.bind(this);
-    this.saveBook = this.saveBook.bind(this);
+    this.saveCourse = this.saveCourse.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
-    if (this.props.book.id != nextProps.book.id) {
+    if (this.props.book.id !== nextProps.book.id) {
       this.setState({book: Object.assign({}, nextProps.book)});
     }
   }
@@ -27,10 +28,10 @@ class AddBook extends Component {
     const field= event.target.name;
     let book = this.state.book;
     book[field] = event.target.value;
-    return this.setState({book: book});
+    return this.setState({ book: book });
   }
 
-  saveBook(event) {
+  saveCourse(event) {
     event.preventDefault();
     this.props.actions.saveBook(this.state.book)
       .then(() => this.redirect())
@@ -48,10 +49,10 @@ class AddBook extends Component {
       <div className="container">
         <h2>Add a Book</h2>
           <BookForm
-            onSave={this.saveBook}
-            onChange={this.updateBookState}
+            onSave={this.saveCourse}
             book={this.state.book}
             errors={this.state.errors}
+            onChange={this.updateBookState}
           />
       </div>
     )
@@ -59,7 +60,7 @@ class AddBook extends Component {
 };
 
 const getBookById = (books, id) => {
-  const book = books.filter(book => book.id == id);
+  const book = books.filter(book => book.id === id);
   if(book) return book[0];
   return null;
 };

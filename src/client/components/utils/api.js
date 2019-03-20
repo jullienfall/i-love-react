@@ -36,14 +36,6 @@ class BooksApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
-        const minAuthorNameLength = 3;
-        if (book.title.length < minAuthorNameLength) {
-          reject(`First Name must be at least ${minAuthorNameLength} characters.`);
-        }
-
-        if (book.author.length < minAuthorNameLength) {
-          reject(`Last Name must be at least ${minAuthorNameLength} characters.`);
-        }
 
         if (book.id) {
           const existingAuthorIndex = books.findIndex(a => a.id === book.id);
