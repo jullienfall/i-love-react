@@ -1,6 +1,23 @@
 .btn {
   padding: .5rem 1.5rem;
   border-radius: 4px;
-  border: 2px solid palette(blue, light);
   background: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: palette(black, text);
+
+  &:disabled {
+    border: 2px solid palette(grey, dark);
+    cursor: not-allowed;
+  }
+
+  &--blue {
+    border: 2px solid palette(blue, light);
+  }
+
+  &--green {
+    background-color: palette(green,base);
+    border: 2px solid palette(green, base);
+    color: palette(white, base);
+  }
 }

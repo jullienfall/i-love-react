@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import './scss/index.css';
 import configureStore from './client/store';
-import {loadBooks} from './client/components/actions/booksAction';
+import { loadBooks } from './client/components/actions/booksAction';
 
 const routes = require('./client/routes');
 

@@ -26,7 +26,7 @@ const BookForm = ({ book, onChange, onSave }) => {
       <input
         type="submit"
         value='Save'
-        className="btn"
+        className="btn btn--blue"
         onClick={onSave}
       />
     </form>

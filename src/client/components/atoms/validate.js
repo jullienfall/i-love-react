@@ -43,5 +43,13 @@ export const ERROR_MESSAGES = {
       errors.email = ERROR_MESSAGES.invalid.replace('%s', 'email address');
     }
 
+    if (!values.username) {
+      errors.username = ERROR_MESSAGES.required.replace('%s', 'username');
+    }
+
+    if (!values.password) {
+      errors.password = ERROR_MESSAGES.required.replace('%s', 'password');
+    }
+
     return errors;
   };

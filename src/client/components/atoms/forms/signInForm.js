@@ -4,25 +4,25 @@ import { Field, reduxForm } from 'redux-form';
 import FormField from './../formField';
 import { validate } from './../validate';
 
-const ContactForm = props => {
-  const { handleSubmit, submitting, invalid } = props;
+const SignInForm = props => {
+  const { submitData, handleSubmit, submitting, invalid } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(submitData)}>
       <div className="row">
         <Field
-          name="first_name"
+          name="username"
           type="text"
           component={FormField}
-          label="First Name"
+          label="Username"
           placeholder="John"
         />
       </div>
       <div className="row">
         <Field
-          name="last_name"
+          name="password"
           type="text"
           component={FormField}
-          label="Last Name"
+          label="Password"
           placeholder="White"
         />
       </div>
@@ -36,6 +36,6 @@ const ContactForm = props => {
 };
 
 export default reduxForm({
-  form: 'contact-form',
+  form: 'sign-in-form',
   validate,
-})(ContactForm);
+})(SignInForm);

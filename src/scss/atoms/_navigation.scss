@@ -1,9 +1,15 @@
 .navigation {
-  list-style: none;
+  display: flex;
+  justify-content: space-between;
 
   &__list {
+    list-style: none;
+    margin: 0;
+  }
+
+  &__item {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
   }
 
   &__link {
@@ -17,5 +23,11 @@
     &:hover {
       color: palette(blue, light);
     }
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
   }
 }

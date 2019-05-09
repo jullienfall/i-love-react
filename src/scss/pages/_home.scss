@@ -1,0 +1,10 @@
+.home {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 4.65rem);
+
+  &__content {
+    padding: 5rem 0 0 5rem;
+  }
+}

@@ -1,6 +1,11 @@
+.wrapper {
+  min-height: calc(100vh - 4.65rem);
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
 .row {
@@ -11,4 +16,9 @@
   flex-wrap: wrap;
   margin-left: -0.5rem;
   margin-right: -0.5rem;
+}
+
+.col-xs-6 {
+  flex-basis: 50%;
+  max-width: 50%;
 }

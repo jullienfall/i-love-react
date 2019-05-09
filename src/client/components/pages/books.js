@@ -15,7 +15,7 @@ class Books extends Component {
               <p>{book.author}</p>
             </div>
           ))}
-          <button className="btn"><Link to="/add-book" className="link">Add book</Link></button>
+          <button className="btn btn--blue"><Link to="/add-book" className="link">Add book</Link></button>
         </div>
       </div>
     )
